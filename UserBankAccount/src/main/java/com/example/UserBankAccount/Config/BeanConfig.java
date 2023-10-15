@@ -1,0 +1,22 @@
+package com.example.UserBankAccount.Config;
+
+
+import com.example.UserBankAccount.Filter.JwtFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class BeanConfig {
+
+    @Bean
+    public FilterRegistrationBean getFilterBean()
+    {
+        FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean();
+        filterRegistrationBean.setFilter(new JwtFilter());
+        filterRegistrationBean.addUrlPatterns("/bankaccount/*");
+        return filterRegistrationBean;
+
+    }
+
+}
